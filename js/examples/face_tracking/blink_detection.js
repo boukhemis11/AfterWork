@@ -92,7 +92,7 @@
 				draw.drawVertices(	face.vertices, 2.0, false, color, 0.4);
 
 				brfv4Example.dom.updateHeadline("BRFv4 - advanced - face tracking - simple blink" +
-					"detection.\nDetects an eye  blink: " + (_blinked ? clearTimeout(t) : "No"));
+					"detection.\nDetects an eye  blink: " + (_blinked ? timeR() : "No"));
 
 				storeFaceShapeVertices(v);
 			}
@@ -125,33 +125,38 @@
 		"Detects a blink of the eyes: ");
 
 	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
+	var tabTime = [];
 
 	var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
     stop = document.getElementById('stop'),
     clear = document.getElementById('clear'),
-    seconds = 0, minutes = 0, hours = 0,
+	score = document.getElementById('score'),
+    milliseconde=0,seconds = 0, minutes = 0, hours = 0,
     t;
 
 function add() {
-    seconds++;
-    if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-        if (minutes >= 60) {
-            minutes = 0;
-            hours++;
-        }
-    }
+    milliseconde++;
+	if(milliseconde>=1000){
+		milliseconde = 0;
+		if (seconds >= 60) {
+			seconds = 0;
+			minutes++;
+			if (minutes >= 60) {
+				minutes = 0;
+				hours++;
+			}
+		}
+	}
     
-    h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+    h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds)+ ":" + (milliseconde > 999 ? milliseconde : "0" + milliseconde);
 
     timer();
 }
 function timer() {
-    t = setTimeout(add, 1000);
+    t = setTimeout(add, 1);
 }
-timer();
+
 
 
 /* Start button */
@@ -160,13 +165,24 @@ start.onclick = timer;
 /* Stop button */
 stop.onclick = function() {
     clearTimeout(t);
+	timeR();
 }
 
 /* Clear button */
 clear.onclick = function() {
     h1.textContent = "00:00:00";
-    seconds = 0; minutes = 0; hours = 0;
+    milliseconde = 0; seconds = 0; minutes = 0; hours = 0;
 }
 
+function timeR(){
+	clearTimeout(t);
+	if(tabTime.length<5){
+  	tabTime.push(h1.textContent);
+    
+    }
+    tabTime.sort();
+var tab = tabTime.join('-');
+score.textContent= tab;
+}
 	
 })();

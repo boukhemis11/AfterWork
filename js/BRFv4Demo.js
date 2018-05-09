@@ -96,7 +96,7 @@ brfv4Example.start = function() {
 
 		// example to load on startup, others can be chosen via the example chooser GUI.
 
-		"js/examples/face_tracking/track_single_face.js"		// start with this example
+		"js/examples/face_tracking/blink_detection.js"		// start with this example
 
 	], function() {
 
