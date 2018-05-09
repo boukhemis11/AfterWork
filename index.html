@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="css/brfv4_examples_theme.css">
+	<title>Beyond Reality Face - BRFv4 - HTML5/Javascript face tracking</title>
+
+	<!--<script src="js/libs/createjs/preloadjs-0.6.2.min.js"></script>-->
+	<script src="js/libs/createjs/preloadjs.min.js"></script>
+	<script src="js/BRFv4Demo.js"></script>
+
+	<script>
+		window.onload = brfv4Example.start; //see js/BRFv4Demo.js
+	</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5620419-18"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-5620419-18');
+	</script>
+	<style>
+	body,
+.jumbotron {
+  padding: 5px;
+  float:left
+}
+
+.timer {
+  font-size: 30px;
+  float:left
+}
+
+.milli-seconds {
+  width: 10px;
+  display: inline-block;
+  
+}
+	</style>
+
+</head>
+
+<body>
+
+		<div class="jumbotron text-center">
+				<!-- Timer -->
+				<div class="timer">
+				  <span class="minutes">00</span> :
+				  <span class="seconds">00</span> :
+				  <span class="milli-seconds">00</span>
+				</div>
+				<!-- timer buttons -->
+				<div class="timer-buttons">
+				  <button class="btn btn-lg btn-success" data-action="start">
+					Start
+				  </button>
+				  <button class="btn btn-lg btn-danger" data-action="stop">
+					Stop
+				  </button>
+				  <button class="btn btn-link btn-block" data-action="reset">
+					reset
+				  </button>
+				</div>
+			  </d>
+
+<div id="_wrapper">
+
+	<div id="_content">
+		<video  id="_webcam" playsinline></video>
+		<canvas id="_imageData"></canvas>
+		<canvas id="_faceSub"></canvas>
+		<canvas id="_t3d"></canvas>
+		<canvas id="_f3d"></canvas>
+		<canvas id="_drawing"></canvas>
+		<div id="_stats"></div>
+		<div id="_progressBar"></div>
+		
+	</div>
+
+	<div id="_subline"></div>
+
+</div>
+
+<div id="_settingsRight"></div>
+
+</body>
+
+</html>
