@@ -123,7 +123,7 @@
 	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
 	var tabTime = [];
 	var tabTime2 = [];
-	var tabName = [];
+
 
 	var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
@@ -193,12 +193,14 @@ for(var i = 0; i<5; i++){
 	var k = tabTime[i];
 	push(k).tab2
 }
-*/
+
 
 function myf(){
 tabName.push(surface);
 console.log('myf');
 }
+*/
+
 
 var tab = tabTime.slice(-5);
 tab.reverse();
@@ -224,3 +226,15 @@ score.textContent= tab;
 }
 	
 })();
+var tabName = [];
+
+function formContact_result() {
+	
+	var elem = document.getElementById("formContact__text");
+	tabName.splice(0, 0, elem.value);
+
+	document.getElementById("formContact__result").innerHTML = elem.value;
+	document.getElementById("nametest").innerHTML = tabName;
+
+	return tabName;
+  }
