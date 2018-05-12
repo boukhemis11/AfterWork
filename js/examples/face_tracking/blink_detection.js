@@ -2,10 +2,6 @@
 	"use strict";
 
 
-
-
-	
-
 	brfv4Example.initCurrentExample = function(brfManager, resolution) {
 		brfManager.init(resolution, resolution, brfv4Example.appId);
 	};
@@ -126,12 +122,15 @@
 
 	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
 	var tabTime = [];
+	var tabTime2 = [];
 
 	var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
     stop = document.getElementById('stop'),
     clear = document.getElementById('clear'),
 	score = document.getElementById('score'),
+	name = document.getElementById('name'),
+	surface = document.getElementById("surface").value;
     milliseconde = 0 ,seconds = 0, minutes = 0, 
     t;
 
@@ -184,7 +183,8 @@ function timeR(){
 
 	
 				if (h1.textContent != "00:00:00" ){
-				tabTime.push(h1.textContent);
+				var ff = h1.textContent;
+				tabTime.push(ff);
 				seconds = 0; minutes = 0; hours = 0;
 				h1.textContent = "00:00:00";
 				
@@ -202,7 +202,23 @@ for(var i = 0; i<5; i++){
 
 var tab = tabTime.slice(-5);
 tab.reverse();
+console.log('hello');
+
+for(var i=0; i<tab.length; i++){
+	console.log(tab[i]);
+	console.log(ff);
+	if (tab[i]==ff) {
+		
+		tabTime2.splice(i, 0, surface);
+		console.log(tabTime2);
+		name.textContent= tabTime2;
+	}
+  }
+
+
+
 score.textContent= tab;
+
 }
 	
 })();
