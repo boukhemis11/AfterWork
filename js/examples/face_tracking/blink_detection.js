@@ -123,6 +123,7 @@
 	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
 	var tabTime = [];
 	var tabTime2 = [];
+	var tabName = [];
 
 	var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
@@ -130,16 +131,10 @@
     clear = document.getElementById('clear'),
 	score = document.getElementById('score'),
 	name = document.getElementById('name'),
-	surface = document.getElementById("surface").value;
-    milliseconde = 0 ,seconds = 0, minutes = 0, 
+	surface = document.getElementById("surface").value,
+    mils = 0 ,seconds = 0, minutes = 0, 
     t;
 
-	var h1 = document.getElementsByTagName('h1')[0],
-    start = document.getElementById('start'),
-    stop = document.getElementById('stop'),
-    clear = document.getElementById('clear'),
-    mils = 0 ,seconds = 0, minutes = 0, hours = 0,
-    t;
 
 function add() {
 
@@ -158,7 +153,7 @@ function add() {
     timer();
 }
 function timer() {
-    t = setTimeout(add, 10);
+    t = setTimeout(add, 1);
 }
 
 
@@ -174,7 +169,7 @@ stop.onclick = function() {
 /* Clear button */
 clear.onclick = function() {
     h1.textContent = "00:00:00";
-    seconds = 0; minutes = 0; hours = 0;
+	mils = 0; seconds = 0; minutes = 0; 
 }
 
 function timeR(){
@@ -185,7 +180,7 @@ function timeR(){
 				if (h1.textContent != "00:00:00" ){
 				var ff = h1.textContent;
 				tabTime.push(ff);
-				seconds = 0; minutes = 0; hours = 0;
+				mils = 0; seconds = 0; minutes = 0;
 				h1.textContent = "00:00:00";
 				
 
@@ -200,16 +195,23 @@ for(var i = 0; i<5; i++){
 }
 */
 
+function myf(){
+tabName.push(surface);
+console.log('myf');
+}
+
 var tab = tabTime.slice(-5);
 tab.reverse();
-console.log('hello');
+
 
 for(var i=0; i<tab.length; i++){
 	console.log(tab[i]);
 	console.log(ff);
 	if (tab[i]==ff) {
-		
-		tabTime2.splice(i, 0, surface);
+
+		var xname = tabName[0];
+		console.log(xname);
+		tabTime2.splice(i, 0, xname);
 		console.log(tabTime2);
 		name.textContent= tabTime2;
 	}
