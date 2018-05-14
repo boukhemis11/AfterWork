@@ -131,7 +131,7 @@
     clear = document.getElementById('clear'),
 	score = document.getElementById('score'),
 	name = document.getElementById('name'),
-	surface = document.getElementById("surface").value,
+
     mils = 0 ,seconds = 0, minutes = 0, 
     t;
 
@@ -203,25 +203,22 @@ console.log('myf');
 
 
 var tab = tabTime.slice(-5);
-tab.reverse();
+var tab3 = tab.reverse();
 
 
 for(var i=0; i<tab.length; i++){
-	console.log(tab[i]);
-	console.log(ff);
-	if (tab[i]==ff) {
+
+	if (tab3[i]==ff) {
 
 		var xname = tabName[0];
-		console.log(xname);
+
 		tabTime2.splice(i, 0, xname);
-		console.log(tabTime2);
-		name.textContent= tabTime2;
+		var tab2 = tabTime2.slice(-5);
+		name.textContent= tab2;
 	}
   }
 
-
-
-score.textContent= tab;
+score.textContent= tab3;
 
 }
 	
@@ -232,9 +229,10 @@ function formContact_result() {
 	
 	var elem = document.getElementById("formContact__text");
 	tabName.splice(0, 0, elem.value);
+	document.getElementById("formContact__text").value = "";
 
-	document.getElementById("formContact__result").innerHTML = elem.value;
-	document.getElementById("nametest").innerHTML = tabName;
+
+
 
 	return tabName;
   }
