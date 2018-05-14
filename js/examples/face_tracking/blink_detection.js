@@ -129,8 +129,8 @@
     start = document.getElementById('start'),
     stop = document.getElementById('stop'),
     clear = document.getElementById('clear'),
-	score = document.getElementById('score'),
-	name = document.getElementById('name'),
+	//score = document.getElementById('score'),
+	//name = document.getElementById('name'),
 
     mils = 0 ,seconds = 0, minutes = 0, 
     t;
@@ -202,23 +202,68 @@ for(var i=0; i<tabTime.length; i++){
   }
 
   var tab3 = tabTime.slice(-5);
-score.textContent= tab3;
+//score.textContent= tab3;
 
 var tab2 = tabNom.slice(-5);
-name.textContent= tab2;
+//name.textContent= tab2;
+
+if(tab3.length==1){
+	document.getElementById("name1").innerHTML = tab2[0];
+	document.getElementById("score1").innerHTML = tab3[0];
+}else if(tab3.length==2){
+	document.getElementById("name1").innerHTML = tab2[1];
+	document.getElementById("score1").innerHTML = tab3[1];
+	document.getElementById("name2").innerHTML = tab2[0];
+	document.getElementById("score2").innerHTML = tab3[0];
+}else if(tab3.length==3){
+	document.getElementById("name1").innerHTML = tab2[2];
+	document.getElementById("score1").innerHTML = tab3[2];
+	document.getElementById("name2").innerHTML = tab2[1];
+	document.getElementById("score2").innerHTML = tab3[1];
+	document.getElementById("name3").innerHTML = tab2[0];
+	document.getElementById("score3").innerHTML = tab3[0];
+}else if(tab3.length==4){
+	document.getElementById("name1").innerHTML = tab2[3];
+	document.getElementById("score1").innerHTML = tab3[3];
+	document.getElementById("name2").innerHTML = tab2[2];
+	document.getElementById("score2").innerHTML = tab3[2];
+	document.getElementById("name3").innerHTML = tab2[1];
+	document.getElementById("score3").innerHTML = tab3[1];
+	document.getElementById("name4").innerHTML = tab2[0];
+	document.getElementById("score4").innerHTML = tab3[0];
+}else{
+	document.getElementById("name1").innerHTML = tab2[4];
+	document.getElementById("score1").innerHTML = tab3[4];
+	document.getElementById("name2").innerHTML = tab2[3];
+	document.getElementById("score2").innerHTML = tab3[3];
+	document.getElementById("name3").innerHTML = tab2[2];
+	document.getElementById("score3").innerHTML = tab3[2];
+	document.getElementById("name4").innerHTML = tab2[1];
+	document.getElementById("score4").innerHTML = tab3[1];
+	document.getElementById("name5").innerHTML = tab2[0];
+	document.getElementById("score5").innerHTML = tab3[0];
+}
+
+
+
+
 }
 	
 })();
 var tabName = [];
+var key=indice;
+var data={	
+	nom: nom,
+	civilId : VarRecupId};
+
 
 function formContact_result() {
 	
 	var elem = document.getElementById("formContact__text");
 	tabName.splice(0, 0, elem.value);
 	document.getElementById("formContact__text").value = "";
-
-
-
-
 	return tabName;
+
+
+
   }
