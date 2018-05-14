@@ -79,7 +79,7 @@
 				var color = 0x00a0ff;
 
 				if(_blinked) {
-					color = 0xffd200;
+					color = 0xe74c3c;
 				}
 
 				// Face Tracking results: 68 facial feature points.
@@ -100,7 +100,7 @@
 
 		if(_timeOut > -1) { clearTimeout(_timeOut); }
 
-		_timeOut = setTimeout(resetBlink, 1);
+		_timeOut = setTimeout(resetBlink, 500);
 	}
 
 	function resetBlink() {
@@ -187,8 +187,6 @@ function timeR(){
 			}
 
 	tabTime.sort();
-
-  
 
 
 for(var i=0; i<tabTime.length; i++){
