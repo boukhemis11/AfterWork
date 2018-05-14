@@ -122,7 +122,7 @@
 
 	brfv4Example.dom.updateCodeSnippet(exampleCode + "");
 	var tabTime = [];
-	var tabTime2 = [];
+	var tabNom = [];
 
 
 	var h1 = document.getElementsByTagName('h1')[0],
@@ -187,39 +187,27 @@ function timeR(){
 			}
 
 	tabTime.sort();
-/*	
-for(var i = 0; i<5; i++){
-	var tab2;
-	var k = tabTime[i];
-	push(k).tab2
-}
+
+  
 
 
-function myf(){
-tabName.push(surface);
-console.log('myf');
-}
-*/
+for(var i=0; i<tabTime.length; i++){
 
-
-var tab = tabTime.slice(-5);
-var tab3 = tab.reverse();
-
-
-for(var i=0; i<tab.length; i++){
-
-	if (tab3[i]==ff) {
+	if (tabTime[i]==ff){
 
 		var xname = tabName[0];
 
-		tabTime2.splice(i, 0, xname);
-		var tab2 = tabTime2.slice(-5);
-		name.textContent= tab2;
+		tabNom.splice(i, 0, xname);
+
+	
 	}
   }
 
+  var tab3 = tabTime.slice(-5);
 score.textContent= tab3;
 
+var tab2 = tabNom.slice(-5);
+name.textContent= tab2;
 }
 	
 })();
