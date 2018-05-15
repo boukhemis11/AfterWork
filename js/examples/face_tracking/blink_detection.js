@@ -1,5 +1,41 @@
 (function exampleCode() {
 	"use strict";
+	
+	var h1 = document.getElementsByTagName('h1')[0],
+    start = document.getElementById('start'),
+    //stop = document.getElementById('stop'),
+    //clear = document.getElementById('clear'),
+	//score = document.getElementById('score'),
+	//name = document.getElementById('name'),
+
+    mils = 0 ,seconds = 0, minutes = 0, 
+    t;
+
+
+function add() {
+
+    mils++;
+    if (mils >= 100) {
+        mils = 0;
+        seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+    }
+  }
+    
+    h1.textContent = (minutes > 9 ? minutes : "0" + minutes)+ ":" + (seconds > 9 ? seconds : "0" + seconds)+ ":" + (mils > 9 ? mils : "0" + mils);
+
+    timer();
+}
+function timer() {
+    t = setTimeout(add, 1);
+}
+
+
+
+/* Start button */
+start.onclick = timer;
 
 
 	brfv4Example.initCurrentExample = function(brfManager, resolution) {
@@ -100,7 +136,7 @@
 
 		if(_timeOut > -1) { clearTimeout(_timeOut); }
 
-		_timeOut = setTimeout(resetBlink, 1);
+		_timeOut = setTimeout(resetBlink, 500);
 	}
 
 	function resetBlink() {
@@ -125,41 +161,6 @@
 	var tabNom = [];
 
 
-	var h1 = document.getElementsByTagName('h1')[0],
-    start = document.getElementById('start'),
-    //stop = document.getElementById('stop'),
-    //clear = document.getElementById('clear'),
-	//score = document.getElementById('score'),
-	//name = document.getElementById('name'),
-
-    mils = 0 ,seconds = 0, minutes = 0, 
-    t;
-
-
-function add() {
-
-    mils++;
-    if (mils >= 100) {
-        mils = 0;
-        seconds++;
-    if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-    }
-  }
-    
-    h1.textContent =(minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds)+ ":" + (mils > 9 ? mils : "0" + mils);
-
-    timer();
-}
-function timer() {
-    t = setTimeout(add, 1);
-}
-
-
-
-/* Start button */
-start.onclick = timer;
 
 /* Stop button 
 stop.onclick = function() {
@@ -202,17 +203,13 @@ for(var i=0; i<tabTime.length; i++){
 	}
   }
 
- 
-    localStorage.setItem("tabName", JSON.stringify(tabNom));
-    localStorage.setItem("tabTime", JSON.stringify(tabTime));
 
-   
 
 var tab3 = tabTime.slice(-5);
 
 var tab2 = tabNom.slice(-5);
 
-function setTable (tab2, tab3){
+
 if(tab3.length==1){
 	document.getElementById("name1").innerHTML = tab2[0];
 	document.getElementById("score1").innerHTML = tab3[0];
@@ -248,21 +245,93 @@ if(tab3.length==1){
 	document.getElementById("score4").innerHTML = tab3[1];
 	document.getElementById("name5").innerHTML = tab2[0];
 	document.getElementById("score5").innerHTML = tab3[0];
+}else if(tab3.length==6){
+	document.getElementById("name1").innerHTML = tab2[5];
+	document.getElementById("score1").innerHTML = tab3[5];
+	document.getElementById("name2").innerHTML = tab2[4];
+	document.getElementById("score2").innerHTML = tab3[4];
+	document.getElementById("name3").innerHTML = tab2[3];
+	document.getElementById("score3").innerHTML = tab3[3];
+	document.getElementById("name4").innerHTML = tab2[2];
+	document.getElementById("score4").innerHTML = tab3[2];
+	document.getElementById("name5").innerHTML = tab2[1];
+	document.getElementById("score5").innerHTML = tab3[1];
+	document.getElementById("name6").innerHTML = tab2[0];
+	document.getElementById("score6").innerHTML = tab3[0];
+}else if(tab3.length==7){
+	document.getElementById("name1").innerHTML = tab2[6];
+	document.getElementById("score1").innerHTML = tab3[6];
+	document.getElementById("name2").innerHTML = tab2[5];
+	document.getElementById("score2").innerHTML = tab3[5];
+	document.getElementById("name3").innerHTML = tab2[4];
+	document.getElementById("score3").innerHTML = tab3[4];
+	document.getElementById("name4").innerHTML = tab2[3];
+	document.getElementById("score4").innerHTML = tab3[3];
+	document.getElementById("name5").innerHTML = tab2[2];
+	document.getElementById("score5").innerHTML = tab3[2];
+	document.getElementById("name6").innerHTML = tab2[1];
+	document.getElementById("score6").innerHTML = tab3[1];
+	document.getElementById("name7").innerHTML = tab2[0];
+	document.getElementById("score7").innerHTML = tab3[0];
+}else if(tab3.length==8){
+	document.getElementById("name1").innerHTML = tab2[7];
+	document.getElementById("score1").innerHTML = tab3[7];
+	document.getElementById("name2").innerHTML = tab2[6];
+	document.getElementById("score2").innerHTML = tab3[6];
+	document.getElementById("name3").innerHTML = tab2[5];
+	document.getElementById("score3").innerHTML = tab3[5];
+	document.getElementById("name4").innerHTML = tab2[4];
+	document.getElementById("score4").innerHTML = tab3[4];
+	document.getElementById("name5").innerHTML = tab2[3];
+	document.getElementById("score5").innerHTML = tab3[3];
+	document.getElementById("name6").innerHTML = tab2[2];
+	document.getElementById("score6").innerHTML = tab3[2];
+	document.getElementById("name7").innerHTML = tab2[1];
+	document.getElementById("score7").innerHTML = tab3[1];
+	document.getElementById("name8").innerHTML = tab2[0];
+	document.getElementById("score8").innerHTML = tab3[0];
+}else if(tab3.length==9){
+	document.getElementById("name1").innerHTML = tab2[8];
+	document.getElementById("score1").innerHTML = tab3[8];
+	document.getElementById("name2").innerHTML = tab2[7];
+	document.getElementById("score2").innerHTML = tab3[7];
+	document.getElementById("name3").innerHTML = tab2[6];
+	document.getElementById("score3").innerHTML = tab3[6];
+	document.getElementById("name4").innerHTML = tab2[5];
+	document.getElementById("score4").innerHTML = tab3[5];
+	document.getElementById("name5").innerHTML = tab2[4];
+	document.getElementById("score5").innerHTML = tab3[4];
+	document.getElementById("name6").innerHTML = tab2[3];
+	document.getElementById("score6").innerHTML = tab3[3];
+	document.getElementById("name7").innerHTML = tab2[2];
+	document.getElementById("score7").innerHTML = tab3[2];
+	document.getElementById("name8").innerHTML = tab2[1];
+	document.getElementById("score8").innerHTML = tab3[1];
+	document.getElementById("name9").innerHTML = tab2[0];
+	document.getElementById("score9").innerHTML = tab3[0];
+}else if(tab3.length==10){
+	document.getElementById("name1").innerHTML = tab2[9];
+	document.getElementById("score1").innerHTML = tab3[9];
+	document.getElementById("name2").innerHTML = tab2[8];
+	document.getElementById("score2").innerHTML = tab3[8];
+	document.getElementById("name3").innerHTML = tab2[7];
+	document.getElementById("score3").innerHTML = tab3[7];
+	document.getElementById("name4").innerHTML = tab2[6];
+	document.getElementById("score4").innerHTML = tab3[6];
+	document.getElementById("name5").innerHTML = tab2[5];
+	document.getElementById("score5").innerHTML = tab3[5];
+	document.getElementById("name6").innerHTML = tab2[4];
+	document.getElementById("score6").innerHTML = tab3[4];
+	document.getElementById("name7").innerHTML = tab2[3];
+	document.getElementById("score7").innerHTML = tab3[3];
+	document.getElementById("name8").innerHTML = tab2[2];
+	document.getElementById("score8").innerHTML = tab3[2];
+	document.getElementById("name9").innerHTML = tab2[1];
+	document.getElementById("score9").innerHTML = tab3[1];
+	document.getElementById("name10").innerHTML = tab2[0];
+	document.getElementById("score10").innerHTML = tab3[0];
 }
-}
-function loadTables(){
-	let tableName = localStorage.getItem('tabName');
-	let tableTime = localStorage.getItem('tabTime');
-	// sort tableTime and table Name ? 
-	
-	console.log(tableName);
-	console.log(tableTime);
-	setTable(tableName, tableTime);
-	
-	
-	
-}
-loadTables();
+
 
 var tabb = tabTime.reverse();
 for(var i=0; i<tabb.length; i++){
@@ -273,7 +342,7 @@ for(var i=0; i<tabb.length; i++){
         // w.document.write(`${xname} avez un score de ${ff} et vous etes a la position ${i+1} `);
         // w.focus();
 		// setTimeout(function () { w.close(); }, 5000);
-		var el = document.createElement("div");
+		var el = document.createElement("span");
      el.setAttribute("style","position:absolute;top:40%;left:20%;background-color:white;");
      el.innerHTML = `${xname} avez un score de ${ff} et vous etes a la position ${i+1}`;
      setTimeout(function(){
