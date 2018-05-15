@@ -100,7 +100,7 @@
 
 		if(_timeOut > -1) { clearTimeout(_timeOut); }
 
-		_timeOut = setTimeout(resetBlink, 500);
+		_timeOut = setTimeout(resetBlink, 1);
 	}
 
 	function resetBlink() {
@@ -202,13 +202,17 @@ for(var i=0; i<tabTime.length; i++){
 	}
   }
 
+ 
+    localStorage.setItem("tabName", JSON.stringify(tabNom));
+    localStorage.setItem("tabTime", JSON.stringify(tabTime));
 
+   
 
 var tab3 = tabTime.slice(-5);
 
 var tab2 = tabNom.slice(-5);
 
-
+function setTable (tab2, tab3){
 if(tab3.length==1){
 	document.getElementById("name1").innerHTML = tab2[0];
 	document.getElementById("score1").innerHTML = tab3[0];
@@ -245,6 +249,20 @@ if(tab3.length==1){
 	document.getElementById("name5").innerHTML = tab2[0];
 	document.getElementById("score5").innerHTML = tab3[0];
 }
+}
+function loadTables(){
+	let tableName = localStorage.getItem('tabName');
+	let tableTime = localStorage.getItem('tabTime');
+	// sort tableTime and table Name ? 
+	
+	console.log(tableName);
+	console.log(tableTime);
+	setTable(tableName, tableTime);
+	
+	
+	
+}
+loadTables();
 
 var tabb = tabTime.reverse();
 for(var i=0; i<tabb.length; i++){
