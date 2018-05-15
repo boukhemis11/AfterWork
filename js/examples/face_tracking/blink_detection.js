@@ -127,8 +127,8 @@
 
 	var h1 = document.getElementsByTagName('h1')[0],
     start = document.getElementById('start'),
-    stop = document.getElementById('stop'),
-    clear = document.getElementById('clear'),
+    //stop = document.getElementById('stop'),
+    //clear = document.getElementById('clear'),
 	//score = document.getElementById('score'),
 	//name = document.getElementById('name'),
 
@@ -161,17 +161,17 @@ function timer() {
 /* Start button */
 start.onclick = timer;
 
-/* Stop button */
+/* Stop button 
 stop.onclick = function() {
     clearTimeout(t);
 }
-
-/* Clear button */
+*/
+/* Clear button 
 clear.onclick = function() {
     h1.textContent = "00:00:00";
 	mils = 0; seconds = 0; minutes = 0; 
 }
-
+*/
 function timeR(){
 
 	clearTimeout(t);
@@ -189,6 +189,7 @@ function timeR(){
 	tabTime.sort();
 
 
+
 for(var i=0; i<tabTime.length; i++){
 
 	if (tabTime[i]==ff){
@@ -201,11 +202,12 @@ for(var i=0; i<tabTime.length; i++){
 	}
   }
 
-  var tab3 = tabTime.slice(-5);
-//score.textContent= tab3;
+
+
+var tab3 = tabTime.slice(-5);
 
 var tab2 = tabNom.slice(-5);
-//name.textContent= tab2;
+
 
 if(tab3.length==1){
 	document.getElementById("name1").innerHTML = tab2[0];
@@ -231,7 +233,7 @@ if(tab3.length==1){
 	document.getElementById("score3").innerHTML = tab3[1];
 	document.getElementById("name4").innerHTML = tab2[0];
 	document.getElementById("score4").innerHTML = tab3[0];
-}else{
+}else if(tab3.length==5){
 	document.getElementById("name1").innerHTML = tab2[4];
 	document.getElementById("score1").innerHTML = tab3[4];
 	document.getElementById("name2").innerHTML = tab2[3];
@@ -244,18 +246,30 @@ if(tab3.length==1){
 	document.getElementById("score5").innerHTML = tab3[0];
 }
 
+var tabb = tabTime.reverse();
+for(var i=0; i<tabb.length; i++){
 
+	if (tabb[i]==ff){
 
+		// var w = window.open('', '', 'width=300,height=2px');
+        // w.document.write(`${xname} avez un score de ${ff} et vous etes a la position ${i+1} `);
+        // w.focus();
+		// setTimeout(function () { w.close(); }, 5000);
+		var el = document.createElement("div");
+     el.setAttribute("style","position:absolute;top:40%;left:20%;background-color:white;");
+     el.innerHTML = `${xname} avez un score de ${ff} et vous etes a la position ${i+1}`;
+     setTimeout(function(){
+      el.parentNode.removeChild(el);
+     },10000);
+     document.body.appendChild(el);
+	
+	}
+  }
 
 }
 	
 })();
 var tabName = [];
-var key=indice;
-var data={	
-	nom: nom,
-	civilId : VarRecupId};
-
 
 function formContact_result() {
 	
@@ -263,7 +277,5 @@ function formContact_result() {
 	tabName.splice(0, 0, elem.value);
 	document.getElementById("formContact__text").value = "";
 	return tabName;
-
-
 
   }
